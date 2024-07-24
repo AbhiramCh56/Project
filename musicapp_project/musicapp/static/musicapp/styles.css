@@ -1,0 +1,156 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #007acc; /* Blue color bar */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h1 {
+  color: #ffffff;
+}
+
+.sidebar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar nav a i {
+  margin-right: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.song-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.song-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.song-item:hover {
+  transform: scale(1.05);
+}
+
+.song-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.song-details h3 {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.song-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.player-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 99%; /* Adjusted to full width */
+  background-color: #007acc; /* Same as sidebar */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.controls-left,
+.controls-center,
+.controls-right {
+  display: flex;
+  align-items: center;
+}
+
+.player-controls button {
+  background: none;
+  border: none;
+  color: white;
+  margin: 0 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.current-song-details {
+  display: flex;
+  align-items: center;
+}
+
+#current-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#volumeSlider,
+#songSlider {
+  width: 100px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #007acc; /* Same as sidebar */
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+}
+
+button.active {
+  color: #ffffff;
+}
+
+#del:hover {
+  cursor: pointer;
+}

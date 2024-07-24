@@ -1,0 +1,63 @@
+{% extends 'musicapp/base.html' %} {% block content %}
+<div class="song-list">
+  {% for song in songs %}
+  <div class="song-item" data-id="{{ forloop.counter0 }}">
+    {% if song.thumbnail %}
+    <img
+      src="{{ song.thumbnail.url }}"
+      alt="{{ song.title }} Thumbnail"
+      class="song-thumbnail"
+    />
+    {% else %}
+    <div class="song-thumbnail placeholder"></div>
+    {% endif %}
+    <div class="song-details">
+      <h3>{{ song.title }}</h3>
+      <p>{{ song.artist }}</p>
+      <audio src="{{ song.audio_file.url }}" class="audio-player"></audio>
+      <form action="{% url 'delete_song' song.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" id="del"><i class="fas fa-trash"></i></button></button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="player-controls">
+  <div class="controls-left">
+    <div class="current-song-details">
+      <img id="current-thumbnail" src="#" alt="Song Thumbnail" />
+      <div>
+        <h3 id="current-title">Song Title</h3>
+        <p id="current-artist">Artist Name</p>
+      </div>
+    </div>
+  </div>
+  <div class="controls-center">
+    <button id="prevBtn"><i class="fas fa-step-backward"></i></button>
+    <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+    <button id="nextBtn"><i class="fas fa-step-forward"></i></button>
+    <button id="loopBtn"><i class="fas fa-redo"></i></button>
+  </div>
+  <div class="controls-right">
+    <input
+      type="range"
+      id="songSlider"
+      min="0"
+     
+      step="0.1"
+      value="0"
+    />
+    <input
+      type="range"
+      id="volumeSlider"
+      min="0"
+      max="1"
+      step="0.01"
+      value="1"
+    />
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'musicapp/styles.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h1>Music App</h1>
+        <nav>
+          <a href="{% url 'song_list' %}"><i class="fas fa-home"></i> Home</a>
+          <a href="{% url 'upload_song' %}"
+            ><i class="fas fa-upload"></i> Upload</a
+          >
+        </nav>
+      </aside>
+      <main class="main-content">
+        <div class="content">{% block content %} {% endblock %}</div>
+      </main>
+    </div>
+    <!-- <footer>
+      <div class="footer-inner">
+        <p>Music App © 2024</p>
+      </div>
+    </footer> -->
+    <script src="{% static 'musicapp/scripts.js' %}" defer></script>
+  </body>
+</html>
